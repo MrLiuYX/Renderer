@@ -1,0 +1,17 @@
+{
+    "name": "Demo_MultiplyMeshRenderer",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f877d972fb374cb4487931a267bb00c7",
+        "GUID:d8b63aba1907145bea998dd612889d6b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
