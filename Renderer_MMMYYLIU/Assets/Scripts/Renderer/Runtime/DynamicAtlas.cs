@@ -1,5 +1,7 @@
 using Native;
+using NUnit.Framework.Internal;
 using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -160,21 +162,62 @@ public class DynamicAtlas : IReference
         var destY = (int)splitRect.y;
         var srcWidth = newTexture.width;
         var srcHeight = newTexture.height;
+        var targetTexture = _atlasTextures[textureIndex];
 
-        // 获取源纹理像素数据
-        var pixels = newTexture.GetPixels32();
+        if (_format == TextureFormat.RGBAHalf || _format == TextureFormat.RGBAFloat)
+        {
+            if(_format == TextureFormat.RGBAHalf)
+            {
+                // 高精度纹理使用GetPixelData和SetPixelData
+                var srcData = newTexture.GetPixelData<half4>(0);
+                var dstData = targetTexture.GetPixelData<half4>(0);
 
-        // 将像素数据写入图集纹理
-        _atlasTextures[textureIndex].SetPixels32(
-            destX,
-            destY,
-            srcWidth,
-            srcHeight,
-            pixels
-        );
+                for (int row = 0, srcDataIndex = 0; row < srcHeight; row++)
+                {
+                    for (int dataCount = 0; dataCount < srcWidth; dataCount++, srcDataIndex++)
+                    {
+                        var index = targetTexture.width * row + destX + dataCount;
+                        dstData[index] = srcData[srcDataIndex];
+                    }
+                }
+
+                // 标记纹理数据已修改
+                targetTexture.Apply(false);
+            }
+            else
+            {
+                // 高精度纹理使用GetPixelData和SetPixelData
+                var srcData = newTexture.GetPixelData<float4>(0);
+                var dstData = targetTexture.GetPixelData<float4>(0);
+
+                for (int row = 0, srcDataIndex = 0; row < srcHeight; row++)
+                {
+                    for (int dataCount = 0; dataCount < srcWidth; dataCount++, srcDataIndex++)
+                    {
+                        var index = targetTexture.width * row + destX + dataCount;
+                        dstData[index] = srcData[srcDataIndex];
+                    }
+                }
+
+                // 标记纹理数据已修改
+                targetTexture.Apply(false);
+            }
+        }
+        else
+        {
+            // 普通纹理仍使用GetPixels32/SetPixels32
+            var pixels = newTexture.GetPixels32();
+            targetTexture.SetPixels32(
+                destX,
+                destY,
+                srcWidth,
+                srcHeight,
+                pixels
+            );
+        }
 
         // 应用纹理修改
-        _atlasTextures[textureIndex].Apply();
+        targetTexture.Apply();
 
         ResizeTexture2DArray(textureIndex);
 
@@ -198,9 +241,53 @@ public class DynamicAtlas : IReference
             var size = _size[i];
             if (size < MaxSize)
             {
-                var pixels = tex.GetPixels32();
-                tex.Reinitialize(size << 1, size << 1);
-                tex.SetPixels32(0, 0, size, size, pixels);
+                if (_format == TextureFormat.RGBAHalf || _format == TextureFormat.RGBAFloat)
+                {
+                    var srcWidth = tex.width;
+                    var srcHeight = tex.height;
+                    if (_format == TextureFormat.RGBAHalf)
+                    {
+                        var srcData = tex.GetPixelData<half4>(0);
+                        tex.Reinitialize(size << 1, size << 1);
+                        var dstData = tex.GetPixelData<half4>(0);
+
+                        for (int row = 0, srcDataIndex = 0; row < srcHeight; row++)
+                        {
+                            for (int dataCount = 0; dataCount < srcWidth; dataCount++, srcDataIndex++)
+                            {
+                                var index = tex.width * row  + dataCount;
+                                dstData[index] = srcData[srcDataIndex];
+                            }
+                        }
+
+                        // 标记纹理数据已修改
+                        tex.Apply(false);
+                    }
+                    else
+                    {
+                        var srcData = tex.GetPixelData<float4>(0);
+                        tex.Reinitialize(size << 1, size << 1);
+                        var dstData = tex.GetPixelData<float4>(0);
+
+                        for (int row = 0, srcDataIndex = 0; row < srcHeight; row++)
+                        {
+                            for (int dataCount = 0; dataCount < srcWidth; dataCount++, srcDataIndex++)
+                            {
+                                var index = tex.width * row + dataCount;
+                                dstData[index] = srcData[srcDataIndex];
+                            }
+                        }
+
+                        // 标记纹理数据已修改
+                        tex.Apply(false);
+                    }
+                }
+                else
+                {
+                    var pixels = tex.GetPixels32();
+                    tex.Reinitialize(size << 1, size << 1);
+                    tex.SetPixels32(0, 0, size, size, pixels);
+                }
                 //右
                 _totalRect[i].Add(new Rect(size, 0, size, size));
                 //右上

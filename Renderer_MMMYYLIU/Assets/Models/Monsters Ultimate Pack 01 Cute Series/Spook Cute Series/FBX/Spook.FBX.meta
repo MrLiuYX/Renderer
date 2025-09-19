@@ -1,0 +1,182 @@
+fileFormatVersion: 2
+guid: eecb4f4e0bf0aee45a92a52e9dec8aeb
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Rig
+    100004: RigHead
+    100006: RigHeadGizmo
+    100008: RigLArm1
+    100010: RigLArm1Gizmo
+    100012: RigLArm2
+    100014: RigLArm2Gizmo
+    100016: RigLArmDigit11
+    100018: RigLArmDigit12
+    100020: RigLArmDigit13
+    100022: RigLArmPalm
+    100024: RigLArmPalmGizmo
+    100026: RigNeck
+    100028: RigPelvis
+    100030: RigPelvisGizmo
+    100032: RigRArm1
+    100034: RigRArm1Gizmo
+    100036: RigRArm2
+    100038: RigRArm2Gizmo
+    100040: RigRArmDigit11
+    100042: RigRArmDigit12
+    100044: RigRArmDigit13
+    100046: RigRArmPalm
+    100048: RigRArmPalmGizmo
+    100050: RigRibcage
+    100052: RigRibcageGizmo
+    100054: RigSpine
+    100056: RigTail1
+    100058: RigTail1Gizmo
+    100060: RigTail2
+    100062: RigTail2Gizmo
+    100064: RigTail3
+    100066: RigTail3Gizmo
+    100068: RigTail4
+    100070: RigTail4Gizmo
+    100072: RigTail5
+    100074: RigTail5Gizmo
+    100076: RigTail6
+    100078: RigTail6Gizmo
+    100080: Spook
+    400000: //RootNode
+    400002: Rig
+    400004: RigHead
+    400006: RigHeadGizmo
+    400008: RigLArm1
+    400010: RigLArm1Gizmo
+    400012: RigLArm2
+    400014: RigLArm2Gizmo
+    400016: RigLArmDigit11
+    400018: RigLArmDigit12
+    400020: RigLArmDigit13
+    400022: RigLArmPalm
+    400024: RigLArmPalmGizmo
+    400026: RigNeck
+    400028: RigPelvis
+    400030: RigPelvisGizmo
+    400032: RigRArm1
+    400034: RigRArm1Gizmo
+    400036: RigRArm2
+    400038: RigRArm2Gizmo
+    400040: RigRArmDigit11
+    400042: RigRArmDigit12
+    400044: RigRArmDigit13
+    400046: RigRArmPalm
+    400048: RigRArmPalmGizmo
+    400050: RigRibcage
+    400052: RigRibcageGizmo
+    400054: RigSpine
+    400056: RigTail1
+    400058: RigTail1Gizmo
+    400060: RigTail2
+    400062: RigTail2Gizmo
+    400064: RigTail3
+    400066: RigTail3Gizmo
+    400068: RigTail4
+    400070: RigTail4Gizmo
+    400072: RigTail5
+    400074: RigTail5Gizmo
+    400076: RigTail6
+    400078: RigTail6Gizmo
+    400080: Spook
+    2100000: 01 - Default
+    2100002: 07 - Default
+    2300000: //RootNode
+    2300002: Spook
+    3300000: //RootNode
+    3300002: Spook
+    4300000: Spook
+    9500000: //RootNode
+    13700000: Spook
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

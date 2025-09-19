@@ -1,6 +1,8 @@
 ﻿using Native;
 using System.Collections.Generic;
 using Unity.Collections;
+using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 
 public class MultiplyMeshRenderer<T> : IRenderer where T: unmanaged, IMultiplyMeshRendererData
@@ -8,7 +10,7 @@ public class MultiplyMeshRenderer<T> : IRenderer where T: unmanaged, IMultiplyMe
     private MultiplyMeshCombiner _combiner;
     private GPUInstanceRenderer<T> _renderer;
     private Material _mat;
-    private DynamicAtlas _diffuseAtlas;
+    private DynamicAtlas _martixAtlas;
 
     private RendererInspector _rendererInspector;
     private MeshFilter _filter;
@@ -23,7 +25,7 @@ public class MultiplyMeshRenderer<T> : IRenderer where T: unmanaged, IMultiplyMe
     public void Clear()
     {
         GameObject.Destroy(_mat);
-        ReferencePool.Release(_diffuseAtlas);
+        ReferencePool.Release(_martixAtlas);
         ReferencePool.Release(_combiner);
         ReferencePool.Release(_renderer);
     }
@@ -32,9 +34,8 @@ public class MultiplyMeshRenderer<T> : IRenderer where T: unmanaged, IMultiplyMe
     {
         _mat = new Material(Shader.Find(matPath));
         _combiner = MultiplyMeshCombiner.Create();
-        _diffuseAtlas = DynamicAtlas.Create();
-
-        _diffuseAtlas.RegisterTextureChangedEvent(OnDiffuseTextureChanged);
+        _martixAtlas = DynamicAtlas.Create(256, TextureFormat.RGBAHalf);
+        _martixAtlas.RegisterTextureChangedEvent(OnDiffuseTextureChanged);
         _renderer = GPUInstanceRenderer<T>.Create(_mat, _combiner.Mesh);
 
 #if UNITY_EDITOR
@@ -43,7 +44,6 @@ public class MultiplyMeshRenderer<T> : IRenderer where T: unmanaged, IMultiplyMe
         _rendererInspector.Mesh = _combiner.Mesh;
         _rendererInspector.Material = _mat;
         _rendererInspector.DataTex = _renderer.GetDataTexure();
-        _rendererInspector.DiffuseTex = _diffuseAtlas.GetTexture2DArray();
         _renderer.RegisterDataTextureChangedEvent(OnDataTextureChanged);
         _filter = _rendererInspector.gameObject.AddOrGetComponent<MeshFilter>();
 #endif
@@ -56,19 +56,33 @@ public class MultiplyMeshRenderer<T> : IRenderer where T: unmanaged, IMultiplyMe
             _rendererInspector.Mesh = _combiner.Mesh;
             _filter.mesh = _combiner.Mesh;
             _renderer.UpdateMesh(_combiner.Mesh);
+            _mat.SetTexture("_DiffuseAtlas", _combiner.DiffuseAtlas);
         }
         _renderer.DoRenderer();
     }
 
-    public RendererHandler<T> AddData(Mesh mesh, Texture2D diffuse)
+    public RendererHandler<T> AddData(ECSAnimationScriptObject @object)
     {
-        _diffuseAtlas.AddTextureToAtlas(diffuse, out var rect, out int page);
         var handler = _renderer.AddData();
-        var handler2 = _combiner.AddMesh(mesh);
-        handler.Data.SetVertexStart(handler2.VertexIndexStart);
-        handler.Data.SetVertexEnd(handler2.VertexIndexEnd);
-        handler.Data.SetDiffuseRect(rect);
-        handler.Data.SetDiffusePageIndex(page);
+
+        var start = int.MaxValue;
+        var end = int.MinValue;
+        for (int i = 0; i < @object.MeshPath.Length; i++)
+        {
+            var mesh = @object.MeshPath[i];
+            var diffuse = @object.Diffuse[i];
+            var handler2 = _combiner.AddMesh(mesh, diffuse);
+            start = math.min(handler2.VertexIndexStart, start);
+            end = math.max(handler2.VertexIndexEnd, end);   
+        }
+
+        handler.Data.SetVertexStart(start);
+        handler.Data.SetVertexEnd(end);
+
+        _martixAtlas.AddTextureToAtlas(@object.Matrix, out var rect, out var pageIndex);
+        handler.Data.SetMartixRect(rect);
+        handler.Data.SetMatrixPage(pageIndex);
+
         _renderer.UpdateData(handler);
         return handler;
     }
@@ -90,7 +104,6 @@ public class MultiplyMeshRenderer<T> : IRenderer where T: unmanaged, IMultiplyMe
 
     private void OnDiffuseTextureChanged()
     {
-        _rendererInspector.DiffuseTex = _diffuseAtlas.GetTexture2DArray();
-        _mat.SetTexture("_DiffuseAtlas", _diffuseAtlas.GetTexture2DArray());
+        _mat.SetTexture("_MatrixAtlas", _martixAtlas.GetTexture2DArray());
     }
 }

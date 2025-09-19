@@ -109,7 +109,6 @@ public unsafe class DynamiceAtlasRenderer<T> : IRenderer where T : unmanaged, ID
         var mat = _renderer.GetMat();
         mat.SetTexture("_dynamicAtlas", _atlas.GetTexture2DArray());
         mat.SetFloat("_dynamicSize", _atlas.GetTexture2DArray().width);
-        _rendererInspector.DiffuseTex = _atlas.GetTexture2DArray();
     }
 
     private void OnDataTextureChanged()

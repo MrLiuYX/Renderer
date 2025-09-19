@@ -6,18 +6,13 @@ using UnityEngine.Pool;
 
 /// <summary>
 /// By mmmyyliu
-/// 合批版
-/// 特殊场合使用
 /// </summary>
 public class Demo_MultiplyMeshRenderer1 : MonoBehaviour
 {
     [Range(1, 10000)]
     public int                                                     EntityCount;
     [SerializeField]
-    private Texture2D[]                                             _diffuse;
-    [SerializeField]
-    private GameObject[]                                            _gos;
-    private Mesh[]                                                  _meshs;
+    private ECSAnimationScriptObject[]                                _objects;
     private const int                                               OperationCountFrame = 100;
     private int                                                     _currentCount;
     private MultiplyMeshRenderer<MultiplyMeshRendererCommonData>    _renderer;
@@ -27,20 +22,11 @@ public class Demo_MultiplyMeshRenderer1 : MonoBehaviour
     {
         _renderer = RendererManager.Instance.GetOrCreateMultiplyRenderer<MultiplyMeshRendererCommonData>();
         _handler = ListPool<RendererHandler<MultiplyMeshRendererCommonData>>.Get();
-        EntityCount = _gos.Length;
-        _meshs = new Mesh[_gos.Length];
-        for (int i = 0; i < _gos.Length; i++)
-        {
-            _meshs[i] = _gos[i].GetComponent<MeshFilter>().sharedMesh;
-        }
+        EntityCount = 1500;
     }
 
     private void OnDestroy()
     {
-        foreach (var item in _handler)
-        {
-            ReferencePool.Release(item);
-        }
         ListPool<RendererHandler<MultiplyMeshRendererCommonData>>.Release(_handler);
     }
 
@@ -51,7 +37,7 @@ public class Demo_MultiplyMeshRenderer1 : MonoBehaviour
             var opCount = math.min(EntityCount - _currentCount, OperationCountFrame);
             for (int i = 0; i < opCount; i++, _currentCount++)
             {
-                var handler = _renderer.AddData(_meshs[_currentCount % _meshs.Length], _diffuse[_currentCount % _diffuse.Length]);
+                var handler = _renderer.AddData(_objects[_currentCount % _objects.Length]);
                 _handler.Add(handler);
                 handler.Data.SetPosition(new float3(_currentCount % 100, _currentCount / 100, 0));
                 _renderer.UpdateData(handler);

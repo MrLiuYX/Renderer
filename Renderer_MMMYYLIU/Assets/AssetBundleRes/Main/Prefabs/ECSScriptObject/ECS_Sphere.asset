@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b868583403e05b4ab1d4226383e1929, type: 3}
+  m_Name: ECS_Sphere
+  m_EditorClassIdentifier: 
+  animationConfigs: []
+  eventConfigs: []
+  Diffuse:
+  - {fileID: 2800000, guid: d63b03e5b77026e488014056be74fdca, type: 3}
+  MeshPath:
+  - {fileID: 4300000, guid: f4cef72f9fdc4d1488329bd01682efaf, type: 2}
+  Matrix: {fileID: 2800000, guid: 9a1363ff65087814789975654a94c9d4, type: 2}

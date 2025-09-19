@@ -1,5 +1,4 @@
-﻿
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -12,9 +11,10 @@ public struct MultiplyMeshRendererCommonData : IMultiplyMeshRendererData
     public float VertexEndIndex;
     public float3 Scale;
     public float IsShow;
-    public float3 Color;
-    public float PageIndex;
-    public float4 DiffuseUV;
+    public float4 MatrixUV;
+    public float MatrixPageIndex;
+    public float AnimationRow;
+    public float2 None;
 
     public void SetActive(bool state)
     {
@@ -23,22 +23,27 @@ public struct MultiplyMeshRendererCommonData : IMultiplyMeshRendererData
 
     public void SetColor(float3 color)
     {
-        Color = color;
+
     }
 
-    public void SetDiffusePageIndex(int index)
+    public void SetMartixRect(Rect rect)
     {
-        PageIndex = index;
+        MatrixUV = rect.ToFloat4();
     }
 
-    public void SetDiffuseRect(Rect rect)
+    public void SetMatrixPage(int page)
     {
-        DiffuseUV = rect.ToFloat4();
+        MatrixPageIndex = page;
     }
 
     public void SetPosition(float3 pos)
     {
         Position = pos;
+    }
+
+    public void SetAnimationRow(float row)
+    {
+        AnimationRow = row;
     }
 
     public void SetRotation(float3 rot)

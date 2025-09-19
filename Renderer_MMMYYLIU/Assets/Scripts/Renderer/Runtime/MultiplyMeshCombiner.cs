@@ -40,23 +40,31 @@ public unsafe class MultiplyMeshCombiner : IReference
     {
         //顶点位置
         public float4 Pos;
+
         //法线
         public float3 Normal;
-        //UV
-        public float3 UV;
-        ////纹理贴图UV
-        //public float4 DiffuseUV;
-        ////纹理贴图
-        //public float DiffusePageIndex;
+
+        //uv_vid_diffusePage
+        public float4 uv_vid_diffusePage;
+
+        //骨骼权重
+        public float4 BonesWeights;
+
+        //骨骼索引
+        public float4 BonesIndexs;
+
+        //DiffuseUV
+        public float4 DiffuseRect;
     }
 
-    private static VertexAttributeDescriptor[] _layout = new VertexAttributeDescriptor[3]
+    private static VertexAttributeDescriptor[] _layout = new VertexAttributeDescriptor[6]
     {
         new VertexAttributeDescriptor( VertexAttribute.Position, VertexAttributeFormat.Float32, 4, 0),
         new VertexAttributeDescriptor( VertexAttribute.Normal, VertexAttributeFormat.Float32, 3, 0),
-        new VertexAttributeDescriptor( VertexAttribute.TexCoord0, VertexAttributeFormat.Float32, 3, 0),
-        //new VertexAttributeDescriptor( VertexAttribute.TexCoord3, VertexAttributeFormat.Float32, 4, 0),
-        //new VertexAttributeDescriptor( VertexAttribute.TexCoord5, VertexAttributeFormat.Float32, 1, 0),
+        new VertexAttributeDescriptor( VertexAttribute.TexCoord1, VertexAttributeFormat.Float32, 4, 0),
+        new VertexAttributeDescriptor( VertexAttribute.TexCoord2, VertexAttributeFormat.Float32, 4, 0),
+        new VertexAttributeDescriptor( VertexAttribute.TexCoord3, VertexAttributeFormat.Float32, 4, 0),
+        new VertexAttributeDescriptor( VertexAttribute.TexCoord4, VertexAttributeFormat.Float32, 4, 0),
     };
 
     /// <summary>
@@ -64,6 +72,8 @@ public unsafe class MultiplyMeshCombiner : IReference
     /// </summary>
     private struct InternalMeshData
     {
+        public Mesh mesh;
+
         public Mesh.MeshDataArray MeshDataArray;
         /// <summary>
         /// Diffuse的UV
@@ -95,7 +105,7 @@ public unsafe class MultiplyMeshCombiner : IReference
     private NativeArray<uint>                   _triangle;
     private int                                 _vertexCount;
     private int                                 _triangleCount;
-    //private DynamicAtlas                        _diffuseAtlas;
+    private DynamicAtlas _diffuseAtlas;
     private int                                 _entityCount;
     private int                                 _vertexDatasize;
     private int                                 _triangleSize;
@@ -106,7 +116,7 @@ public unsafe class MultiplyMeshCombiner : IReference
 
 
     public Mesh Mesh => _mesh;
-    //public Texture2DArray DiffuseAtlas => _diffuseAtlas.GetTexture2DArray();
+    public Texture2DArray DiffuseAtlas => _diffuseAtlas.GetTexture2DArray();
 
     public static MultiplyMeshCombiner Create()
     {
@@ -120,7 +130,7 @@ public unsafe class MultiplyMeshCombiner : IReference
         _entityCount = 0;
         _multiplyMeshCombineObj = new GameObject("MultiplyMeshCombine");
         _filter = _multiplyMeshCombineObj.AddComponent<MeshFilter>();
-        //_diffuseAtlas = DynamicAtlas.Create();
+        _diffuseAtlas = DynamicAtlas.Create();
         _vertexDatasize = 1024;
         _triangleSize = 1024;
 
@@ -161,26 +171,26 @@ public unsafe class MultiplyMeshCombiner : IReference
         _needAddTriangleCount = 0;
         GameObject.Destroy(_multiplyMeshCombineObj);
         GameObject.Destroy(_mesh);
-        //ReferencePool.Release(_diffuseAtlas);
+        ReferencePool.Release(_diffuseAtlas);
         DictionaryPool<Mesh, InternalMeshData>.Release(_meshDataDict);
         ListPool<InternalMeshData>.Release(_needWriteInternalMeshData);
     }
 
-    public MultiplyMeshRendererHandler AddMesh(Mesh mesh)
+    public MultiplyMeshRendererHandler AddMesh(Mesh mesh, Texture2D diffuse)
     {
-        //_diffuseAtlas.AddTextureToAtlas(diffuseTex, out var rect, out var pageIndex);
+        _diffuseAtlas.AddTextureToAtlas(diffuse, out var rect, out var pageIndex);
 
         MultiplyMeshRendererHandler handler = ReferencePool.Acquire<MultiplyMeshRendererHandler>();
 
         if (!_meshDataDict.TryGetValue(mesh, out var internalMeshData))
         {
             internalMeshData.MeshDataArray = Mesh.AcquireReadOnlyMeshData(mesh);
-            //internalMeshData.DiffuseRect = rect;
-            //internalMeshData.PageIndex = pageIndex;
+            internalMeshData.PageIndex = pageIndex;
+            internalMeshData.DiffuseRect = rect;
             internalMeshData.EntityPosition = _entityCount;
             internalMeshData.VertexDataPosition = _vertexCount + _needAddVertexCount;
             internalMeshData.TriangleDataPosition = _triangleCount + _needAddTriangleCount;
-
+            internalMeshData.mesh = mesh;
             _needAddVertexCount += _vertexCount + mesh.vertexCount;
             _needAddTriangleCount += mesh.triangles.Length;
             _needWriteInternalMeshData.Add(internalMeshData);
@@ -241,17 +251,49 @@ public unsafe class MultiplyMeshCombiner : IReference
             var uvs = new NativeArray<Vector3>(meshDataArray.vertexCount, Allocator.TempJob);
             meshDataArray.GetUVs(0, uvs);
 
+            NativeArray<float4> bonesWeights = new NativeArray<float4>(meshDataArray.vertexCount, Allocator.TempJob);
+
+            NativeArray<float4> bonesIndexs = new NativeArray<float4>(meshDataArray.vertexCount, Allocator.TempJob);
+
+            for (int i = 0; i < internalMeshData.mesh.boneWeights.Length; i++)
+            {
+                var boneWeight = internalMeshData.mesh.boneWeights[i];
+
+                bonesWeights[i] = new float4(
+                    boneWeight.weight0
+                    , boneWeight.weight1
+                    , boneWeight.weight2
+                    , boneWeight.weight3
+                );
+
+                bonesIndexs[i] = new float4(
+                    boneWeight.boneIndex0
+                    , boneWeight.boneIndex1
+                    , boneWeight.boneIndex2
+                    , boneWeight.boneIndex3
+                );
+            }
+
+            if(internalMeshData.mesh.boneWeights.Length == 0)
+            {
+                for (int i = 0; i < bonesWeights.Length; i++)
+                {
+                    bonesWeights[i] = new float4(1,0,0,0);
+                }
+            }
+
             new VertexDataInjectJob()
             {
                 _vertexDatas = _vertexDatas,
                 _indexOffset = internalMeshData.VertexDataPosition,
-
                 _vertexs = vertexs,
                 _normals = normals,
                 _uvs = uvs,
                 _diffuseUV = internalMeshData.DiffuseRect.ToFloat4(),
                 _pageIndex = internalMeshData.PageIndex,
-            }.Schedule(meshDataArray.vertexCount, 64).Complete();            
+                _bonesWeights = bonesWeights,
+                _bonesIndexs = bonesIndexs,
+            }.Schedule(meshDataArray.vertexCount, 64).Complete();      
         }
 
         _vertexCount = endVertexCount;
@@ -325,6 +367,8 @@ public unsafe class MultiplyMeshCombiner : IReference
         internal NativeArray<Vector3> _vertexs;
         internal NativeArray<Vector3> _normals;
         internal NativeArray<Vector3> _uvs;
+        internal NativeArray<float4> _bonesWeights;
+        internal NativeArray<float4> _bonesIndexs;
         internal float4 _diffuseUV;
         internal int _pageIndex;
 
@@ -335,9 +379,10 @@ public unsafe class MultiplyMeshCombiner : IReference
             {
                 Pos = new float4(_vertexs[index], 1),
                 Normal = _normals[index],
-                UV = _uvs[index],
-                //DiffuseUV = _diffuseUV,
-                //DiffusePageIndex = _pageIndex,
+                uv_vid_diffusePage = new float4(_uvs[index].x, _uvs[index].y, index + _indexOffset, _pageIndex),
+                BonesWeights = _bonesWeights[index],
+                BonesIndexs = _bonesIndexs[index],
+                DiffuseRect = _diffuseUV,
             };
         }
     }
@@ -383,9 +428,4 @@ public unsafe class MultiplyMeshCombiner : IReference
 
         return outIdx;
     }
-
-    //public void RegisterDiffuseAtlasChanged(OnDynamicAtlasTextureChanged @event)
-    //{
-    //    _diffuseAtlas.RegisterTextureChangedEvent(@event);
-    //}
 }

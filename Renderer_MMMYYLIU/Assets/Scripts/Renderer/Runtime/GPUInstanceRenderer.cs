@@ -5,6 +5,7 @@ using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public delegate void OnDataTextureChanged();
 
@@ -31,7 +32,9 @@ public unsafe class GPUInstanceRenderer<T> : IRenderer, IReference where T : unm
 
     private byte* _src;
     private byte* _des;
-
+    private Matrix4x4[] _totalMatrix;
+    private MaterialPropertyBlock _block;
+    private const int _split = 512;
     private event OnDataTextureChanged _dataTextureEvent;
 
     public static GPUInstanceRenderer<T> Create(Material mat, Mesh mesh)
@@ -64,6 +67,23 @@ public unsafe class GPUInstanceRenderer<T> : IRenderer, IReference where T : unm
 
         _dirtyDatasStart = int.MaxValue;
         _dirtyDatasEnd = int.MinValue;
+
+        //兼容旧版本
+        _totalMatrix = new Matrix4x4[_split];
+        for (int i = 0; i < _totalMatrix.Length; i++)
+        {
+            _totalMatrix[i] = Matrix4x4.identity;
+        }
+        _block = new MaterialPropertyBlock();
+    }
+
+    public void Clear()
+    {
+        if (_argsBuffer != null) { _argsBuffer.Dispose(); _argsBuffer = null; }
+        if (_dataTexture != null) GameObject.Destroy(_dataTexture);
+        if (_datas.IsCreated) _datas.Dispose();
+        _freeDatas.Clear();
+        Debug.Log($"RendererDestroy : {typeof(T).Name}");
     }
 
     public void RegisterDataTextureChangedEvent(OnDataTextureChanged @event)
@@ -110,8 +130,8 @@ public unsafe class GPUInstanceRenderer<T> : IRenderer, IReference where T : unm
         handler.Data = data;
 
         return handler;
-    }
 
+    }
     private void Expansion()
     {
         if (_textureSize * _textureSize >= _pixelSize * _datas.Length) return;
@@ -156,17 +176,6 @@ public unsafe class GPUInstanceRenderer<T> : IRenderer, IReference where T : unm
         _dirty = true;
         _dirtyDatasStart = math.min(_dirtyDatasStart, handler.Index);
         _dirtyDatasEnd = math.max(_dirtyDatasEnd, handler.Index);
-
-        ReferencePool.Release(handler);
-    }
-
-    public void Clear()
-    {
-        if (_argsBuffer != null) { _argsBuffer.Dispose(); _argsBuffer = null; }
-        if (_dataTexture != null) GameObject.Destroy(_dataTexture);
-        if (_datas.IsCreated) _datas.Dispose();
-        _freeDatas.Clear();
-        Debug.Log($"RendererDestroy : {typeof(T).Name}");
     }
 
 
@@ -185,18 +194,35 @@ public unsafe class GPUInstanceRenderer<T> : IRenderer, IReference where T : unm
         }
 
         _argsBuffer.SetData(_args);
-        Graphics.DrawMeshInstancedIndirect(
-            _instanceMesh
-            , _subMeshIndex
-            , _instanceMaterial
-            , _bounds
-            , _argsBuffer
-            , 0
-            , null
-            , UnityEngine.Rendering.ShadowCastingMode.Off
-            , false
-            , 0
-            , null);
+
+        if (SystemInfo.supportsInstancing)
+        {
+            Graphics.DrawMeshInstancedIndirect(
+                _instanceMesh,
+                _subMeshIndex,
+                _instanceMaterial,
+                _bounds,
+                _argsBuffer,
+                0,
+                null,
+                UnityEngine.Rendering.ShadowCastingMode.Off,
+                false,
+                0,
+                null);
+        }
+        else
+        {
+            //尝试兼容WebGL
+            _instanceMaterial.enableInstancing = true;
+            var rendererCount = _datas.Length;
+            var batches = Mathf.CeilToInt(rendererCount * 1.0f / (_split - 1));
+            for (int batchIndex = 0; batchIndex < batches; batchIndex++)
+            {
+                _block.SetInt("_instanceIdOffset", batchIndex * (_split - 1));
+                var instancesInBatch = Mathf.Min((_split - 1), rendererCount - batchIndex * (_split - 1));
+                Graphics.DrawMeshInstanced(_instanceMesh, _subMeshIndex, _instanceMaterial, _totalMatrix, instancesInBatch, _block);
+            }
+        }
     }
 
     public void UpdateMesh(Mesh mesh)

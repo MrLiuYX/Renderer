@@ -6,6 +6,7 @@ Shader "Unlit/DynamicAtlasRenderer"
         _dynamicAtlas ("Dynamic Atlas", 2DArray) = "" {}
         _dynamicSize ("Dynamic Atlas Size", float) = 0
         _pixelSize ("Pixel Size", float) = 0
+        _instanceIdOffset("InstanceIdOffset", int) = 0
     }
     SubShader
     {
@@ -19,8 +20,7 @@ Shader "Unlit/DynamicAtlasRenderer"
 			HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-			#pragma multi_compile_instancing 
-            #define PI 3.14159265359
+			#pragma multi_compile_instancing
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
@@ -47,6 +47,7 @@ Shader "Unlit/DynamicAtlasRenderer"
             //Shader
             sampler2D _DataTex;            
             float4 _DataTex_TexelSize;
+            int _instanceIdOffset;
 
             float DegreesToRadians(float degrees)
             {
@@ -56,9 +57,10 @@ Shader "Unlit/DynamicAtlasRenderer"
 
             v2f vert (appdata v, uint id : SV_INSTANCEID)
             {
-                v2f o;
 
-                //三个像素点
+                id += _instanceIdOffset;
+                
+                v2f o;
                 id *= _pixelSize;
                 float normalizeLen = _DataTex_TexelSize.x;
                 //Pos uvx
@@ -84,7 +86,6 @@ Shader "Unlit/DynamicAtlasRenderer"
                 
                 float4 vertex = v.vertex;
 
-                //尺寸
                 float4x4 M_Scale = float4x4
                     (
                         data3.x,0,0,0,
@@ -94,7 +95,6 @@ Shader "Unlit/DynamicAtlasRenderer"
                     );
                 vertex = mul(M_Scale,vertex);
 
-                //旋转
                 float4x4 M_rotateX = float4x4
                     (
                     1,0,0,0,
@@ -120,13 +120,6 @@ Shader "Unlit/DynamicAtlasRenderer"
                 vertex = mul(M_rotateX,vertex);
                 vertex = mul(M_rotateY,vertex);
                 vertex = mul(M_rotateZ,vertex);
-
-                //  // 需要同样旋转法线
-                //float3 normal = v.normal;
-                //normal = mul((float3x3)M_rotateX, normal);
-                //normal = mul((float3x3)M_rotateY, normal);
-                //normal = mul((float3x3)M_rotateZ, normal);
-                //normal = normalize(normal);  // 确保法线归一化
 
                 float4 worldPos = float4(TransformObjectToWorld(vertex + float4(data1.xyz, 0)), 0);
                 o.vertex = TransformWorldToHClip(worldPos);

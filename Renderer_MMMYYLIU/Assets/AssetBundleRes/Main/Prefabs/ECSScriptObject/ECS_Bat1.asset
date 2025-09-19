@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b868583403e05b4ab1d4226383e1929, type: 3}
+  m_Name: ECS_Bat1
+  m_EditorClassIdentifier: 
+  animationConfigs:
+  - AnimationId: 0
+    AnimationLoop: 1
+    StartLine: 0
+    EndLine: 34
+    TotalSec: 0.6666667
+  eventConfigs: []
+  Diffuse:
+  - {fileID: 2800000, guid: 21fa168f21c582046be12995bf7a97c3, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  MeshPath:
+  - {fileID: 4300000, guid: 4a58368884f9bed49b661b5bb4da32d4, type: 2}
+  - {fileID: 4300000, guid: 84ef55f23664f8d4d90accfb5c33db42, type: 2}
+  - {fileID: 4300000, guid: 22f11210679b7b84a9e1a7acf2e97e95, type: 2}
+  Matrix: {fileID: 2800000, guid: 188f871ac66bd964bbfcb4e29548a33d, type: 2}

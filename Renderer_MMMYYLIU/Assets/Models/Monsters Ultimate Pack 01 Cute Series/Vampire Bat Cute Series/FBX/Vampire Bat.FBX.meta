@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: 8e45cb7c4f2b89c4ab6a1c6c7ee5a597
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Object001
+    100004: Vampire Bat
+    100006: Rig
+    100008: RigEarL
+    100010: RigEarLGizmo
+    100012: RigEarR
+    100014: RigEarRGizmo
+    100016: RigJaw
+    100018: RigJawGizmo
+    100020: RigLArm1
+    100022: RigLArm1Gizmo
+    100024: RigLArm2
+    100026: RigLArm2Gizmo
+    100028: RigLLeg1
+    100030: RigLLeg2
+    100032: RigLLegAnkle
+    100034: RigLLegPlatform
+    100036: RigPelvis
+    100038: RigPelvisGizmo
+    100040: RigRArm1
+    100042: RigRArm1Gizmo
+    100044: RigRArm2
+    100046: RigRArm2Gizmo
+    100048: RigRibcage
+    100050: RigRibcageGizmo
+    100052: RigRLeg1
+    100054: RigRLeg2
+    100056: RigRLegAnkle
+    100058: RigRLegPlatform
+    100060: RigSpine
+    100062: RigTail1
+    100064: RigTail1Gizmo
+    100066: RigTail2
+    100068: RigTail2Gizmo
+    100070: RigTail3
+    100072: RigTail3Gizmo
+    400000: //RootNode
+    400002: Object001
+    400004: Vampire Bat
+    400006: Rig
+    400008: RigEarL
+    400010: RigEarLGizmo
+    400012: RigEarR
+    400014: RigEarRGizmo
+    400016: RigJaw
+    400018: RigJawGizmo
+    400020: RigLArm1
+    400022: RigLArm1Gizmo
+    400024: RigLArm2
+    400026: RigLArm2Gizmo
+    400028: RigLLeg1
+    400030: RigLLeg2
+    400032: RigLLegAnkle
+    400034: RigLLegPlatform
+    400036: RigPelvis
+    400038: RigPelvisGizmo
+    400040: RigRArm1
+    400042: RigRArm1Gizmo
+    400044: RigRArm2
+    400046: RigRArm2Gizmo
+    400048: RigRibcage
+    400050: RigRibcageGizmo
+    400052: RigRLeg1
+    400054: RigRLeg2
+    400056: RigRLegAnkle
+    400058: RigRLegPlatform
+    400060: RigSpine
+    400062: RigTail1
+    400064: RigTail1Gizmo
+    400066: RigTail2
+    400068: RigTail2Gizmo
+    400070: RigTail3
+    400072: RigTail3Gizmo
+    2100000: 01 - Default
+    2100002: 07 - Default
+    2300000: //RootNode
+    2300002: Object001
+    2300004: Vampire Bat
+    3300000: //RootNode
+    3300002: Object001
+    3300004: Vampire Bat
+    4300000: Vampire Bat
+    4300002: Object001
+    9500000: //RootNode
+    13700000: Vampire Bat
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

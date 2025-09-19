@@ -1,13 +1,15 @@
+using System;
 using Native;
 using System.Collections.Generic;
+using Unity.Burst;
+using Unity.Collections;
+using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
 
 /// <summary>
 /// By mmmyyliu
-/// 所有图片均由GPT-5生成2
-/// 
 /// </summary>
 public class Demo_DynamicAtlasRenderer : MonoBehaviour
 {
@@ -20,25 +22,21 @@ public class Demo_DynamicAtlasRenderer : MonoBehaviour
     private const int                                               OperationCountFrame = 100;
     private int                                                     _currentCount;
     private DynamiceAtlasRenderer<DynamicAtlasRendererCommonData>   _renderer;
-    private List<RendererHandler<DynamicAtlasRendererCommonData>>   _handler;
+    private NativeList<RendererHandler<DynamicAtlasRendererCommonData>>   _handler;
+    private JobHandle _job;
 
     private void Start()
     {
         _renderer = RendererManager.Instance.GetOrCreateDynamicAtlasRenderer<DynamicAtlasRendererCommonData>();
-        _handler = ListPool<RendererHandler<DynamicAtlasRendererCommonData>>.Get();
-
-        //初始化图集用 图集会有点耗 可以考虑丢入Job计算
+        _handler = new NativeList<RendererHandler<DynamicAtlasRendererCommonData>>(Allocator.Persistent);
+        
         IconCount = _allTextures.Length;
         RotSpeed = 180;
     }
 
     private void OnDestroy()
     {
-        foreach (var item in _handler)
-        {
-            ReferencePool.Release(item);
-        }
-        ListPool<RendererHandler<DynamicAtlasRendererCommonData>>.Release(_handler);
+        _handler.Dispose();
     }
 
     private void Update()
@@ -52,6 +50,7 @@ public class Demo_DynamicAtlasRenderer : MonoBehaviour
                 _handler.Add(handler);
                 handler.Data.SetPosition(new float3(_currentCount % 100, _currentCount / 100, 0));
                 handler.Data.SetRotation(new float3(0, UnityEngine.Random.Range(0, 360f), 0));
+                _handler[_currentCount] = handler;
                 _renderer.UpdateData(handler);
             }
         }
@@ -60,16 +59,42 @@ public class Demo_DynamicAtlasRenderer : MonoBehaviour
             var opCount = math.min(_currentCount - IconCount, OperationCountFrame);
             for (int i = 0; i < opCount; i++, _currentCount--)
             {
-                var last = _handler.Count - 1;
+                var last = _handler.Length - 1;
                 _renderer.RemoveData(_handler[last]);
                 _handler.RemoveAt(last);
             }
         }
-
-        for (int i = 0; i < _handler.Count; i++)
+        
+        _job = new AnimationJob
         {
-            _handler[i].Data.SetRotation(_handler[i].Data.Rotation + new float3(0, RotSpeed * Time.deltaTime, 0));
+            RotSpeed = RotSpeed,
+            DeltaTime = Time.deltaTime,
+            Write = _handler,
+        }.Schedule(_handler.Length, 1 << 6);
+    }
+
+    private void LateUpdate()
+    {
+        _job.Complete();
+        for (int i = 0; i < _handler.Length; i++)
+        {
             _renderer.UpdateData(_handler[i]);
+        }
+    }
+
+    [BurstCompile]
+    private struct AnimationJob : IJobParallelFor
+    {
+        [ReadOnly] public float RotSpeed;
+        [ReadOnly] public float DeltaTime;
+        [NativeDisableParallelForRestriction] public NativeList<RendererHandler<DynamicAtlasRendererCommonData>> Write;
+
+        [BurstCompile]
+        public void Execute(int index)
+        {
+            var handler = Write[index];
+            handler.Data.SetRotation(Write[index].Data.Rotation + new float3(0, RotSpeed * DeltaTime, 0));
+            Write[index] = handler;
         }
     }
 }
