@@ -38,7 +38,7 @@ public class MultiplyMeshRenderer<T> : IRenderer where T: unmanaged, IMultiplyMe
         _martixAtlas.RegisterTextureChangedEvent(OnDiffuseTextureChanged);
         _renderer = GPUInstanceRenderer<T>.Create(_mat, _combiner.Mesh);
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         _rendererInspector = new GameObject($"Renderer_MultiplyMeshRenderer_{typeof(T).Name}").AddOrGetComponent<RendererInspector>();
         _rendererInspector.transform.SetParent(RendererManager.Instance.DynamicAtlasRoot.transform);
         _rendererInspector.Mesh = _combiner.Mesh;
@@ -46,7 +46,8 @@ public class MultiplyMeshRenderer<T> : IRenderer where T: unmanaged, IMultiplyMe
         _rendererInspector.DataTex = _renderer.GetDataTexure();
         _renderer.RegisterDataTextureChangedEvent(OnDataTextureChanged);
         _filter = _rendererInspector.gameObject.AddOrGetComponent<MeshFilter>();
-#endif
+        //_rendererInspector.gameObject.AddOrGetComponent<MeshRenderer>();
+//#endif
     }
 
     public void DoRenderer()

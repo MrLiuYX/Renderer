@@ -20,7 +20,8 @@ Shader "Unlit/MultiplyMeshRenderer"
 			HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-			#pragma multi_compile_instancing 
+			#pragma multi_compile_instancing
+            // #pragma instancing_options procedural:setup 
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
@@ -62,6 +63,11 @@ Shader "Unlit/MultiplyMeshRenderer"
                 return degrees * PI / 180.0;
             }
 
+            // void setup()
+            // {
+
+            // }
+
             float4x4 GetBoneMatrix(int4 matrixUV, float matrixPage, float boneIndex, float animationRow)
             {
                 uint texW, texH, layers;
@@ -84,10 +90,9 @@ Shader "Unlit/MultiplyMeshRenderer"
                 return float4x4(r0,r1,r2,r3);
             }
 
-            v2f vert (appdata v, uint id : SV_INSTANCEID)
+            v2f vert (appdata v, uint id : SV_InstanceID)
             {
                 v2f o;
-
                 int debugInstanceId = id + _instanceIdOffset;
                 id += _instanceIdOffset;
 
@@ -102,11 +107,11 @@ Shader "Unlit/MultiplyMeshRenderer"
                 float4 data2 = tex2Dlod(_DataTex, float4((id + 1) % _DataTex_TexelSize.w, (id + 1) / _DataTex_TexelSize.w, 0, 0) * normalizeLen);  
                 data2.xyz = data2.xyz * PI / 180;
                 
-                // if (vid < data1.w || vid >= data2.w)
-                // {
-                //     o.vertex = 0;
-                //     return o;
-                // }
+                if (vid < data1.w || vid >= data2.w)
+                {
+                    o.vertex = 0;
+                    return o;
+                }
                 
                 //Scale Show
                 float4 data3 = tex2Dlod(_DataTex, float4((id + 2) % _DataTex_TexelSize.w, (id + 2) / _DataTex_TexelSize.w, 0, 0) * normalizeLen);  
@@ -213,6 +218,7 @@ Shader "Unlit/MultiplyMeshRenderer"
 
                 o.normal = normal;
                 o.debug = debugInstanceId;
+                
                 return o;
             }
 
@@ -223,6 +229,7 @@ Shader "Unlit/MultiplyMeshRenderer"
                 float3 dir = normalize(mainLight.direction);
                 col = col * max(0.2, dot(dir, i.normal));   
                 return col;
+                // return 1;
                 // return i.debug == 56 ? half4(1,0,0,0.5) : half4(half3(1,1,1), 0.5);
                 // return i.debug == 1023 ? half4(1,0,0,0.5) : half4(half3(1,1,1), 0.5);
             }

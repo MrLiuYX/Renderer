@@ -13,6 +13,8 @@ public class RendererManager : MonoBehaviour, IRendererManager
     private Dictionary<Type, IRenderer> _multiplyMeshRendererDict;
     public GameObject DynamicAtlasRoot;
 
+    public Material[] _mats;
+
     public static RendererManager Instance;
 
     private void Awake()

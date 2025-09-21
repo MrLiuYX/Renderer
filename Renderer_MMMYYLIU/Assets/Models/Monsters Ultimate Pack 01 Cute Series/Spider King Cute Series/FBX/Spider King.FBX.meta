@@ -1,147 +1,419 @@
 fileFormatVersion: 2
 guid: d2be7501b2c5da34798024d07c8d2c73
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Rig
-    100004: RigHead
-    100006: RigHeadGizmo
-    100008: RigHub
-    100010: RigHubGizmo
-    100012: RigJaw
-    100014: RigJawGizmo
-    100016: RigL2Leg1
-    100018: RigL2Leg2
-    100020: RigL2Leg3
-    100022: RigL2LegPlatform
-    100024: RigL3Leg1
-    100026: RigL3Leg2
-    100028: RigL3Leg3
-    100030: RigL3LegPlatform
-    100032: RigL4Leg1
-    100034: RigL4Leg2
-    100036: RigL4Leg3
-    100038: RigL4LegPlatform
-    100040: RigLArm1
-    100042: RigLArm1Gizmo
-    100044: RigLArm2
-    100046: RigLArm2Gizmo
-    100048: RigLArmDigit11
-    100050: RigLArmDigit12
-    100052: RigLArmPalm
-    100054: RigLArmPalmGizmo
-    100056: RigR2Leg1
-    100058: RigR2Leg2
-    100060: RigR2Leg3
-    100062: RigR2LegPlatform
-    100064: RigR3Leg1
-    100066: RigR3Leg2
-    100068: RigR3Leg3
-    100070: RigR3LegPlatform
-    100072: RigR4Leg1
-    100074: RigR4Leg2
-    100076: RigR4Leg3
-    100078: RigR4LegPlatform
-    100080: RigRArm1
-    100082: RigRArm1Gizmo
-    100084: RigRArm2
-    100086: RigRArm2Gizmo
-    100088: RigRArmDigit11
-    100090: RigRArmDigit12
-    100092: RigRArmPalm
-    100094: RigRArmPalmGizmo
-    100096: RigSpine
-    100098: RigTail1
-    100100: RigTail1Gizmo
-    100102: RigTail2
-    100104: RigTail2Gizmo
-    100106: RigTail3
-    100108: RigTail3Gizmo
-    100110: RigTail4
-    100112: RigTail4Gizmo
-    100114: RigTail5
-    100116: RigTail5Gizmo
-    100118: RigTail6
-    100120: RigTail6Gizmo
-    100122: RigTail7
-    100124: RigTail7Gizmo
-    100126: Spider King
-    400000: //RootNode
-    400002: Rig
-    400004: RigHead
-    400006: RigHeadGizmo
-    400008: RigHub
-    400010: RigHubGizmo
-    400012: RigJaw
-    400014: RigJawGizmo
-    400016: RigL2Leg1
-    400018: RigL2Leg2
-    400020: RigL2Leg3
-    400022: RigL2LegPlatform
-    400024: RigL3Leg1
-    400026: RigL3Leg2
-    400028: RigL3Leg3
-    400030: RigL3LegPlatform
-    400032: RigL4Leg1
-    400034: RigL4Leg2
-    400036: RigL4Leg3
-    400038: RigL4LegPlatform
-    400040: RigLArm1
-    400042: RigLArm1Gizmo
-    400044: RigLArm2
-    400046: RigLArm2Gizmo
-    400048: RigLArmDigit11
-    400050: RigLArmDigit12
-    400052: RigLArmPalm
-    400054: RigLArmPalmGizmo
-    400056: RigR2Leg1
-    400058: RigR2Leg2
-    400060: RigR2Leg3
-    400062: RigR2LegPlatform
-    400064: RigR3Leg1
-    400066: RigR3Leg2
-    400068: RigR3Leg3
-    400070: RigR3LegPlatform
-    400072: RigR4Leg1
-    400074: RigR4Leg2
-    400076: RigR4Leg3
-    400078: RigR4LegPlatform
-    400080: RigRArm1
-    400082: RigRArm1Gizmo
-    400084: RigRArm2
-    400086: RigRArm2Gizmo
-    400088: RigRArmDigit11
-    400090: RigRArmDigit12
-    400092: RigRArmPalm
-    400094: RigRArmPalmGizmo
-    400096: RigSpine
-    400098: RigTail1
-    400100: RigTail1Gizmo
-    400102: RigTail2
-    400104: RigTail2Gizmo
-    400106: RigTail3
-    400108: RigTail3Gizmo
-    400110: RigTail4
-    400112: RigTail4Gizmo
-    400114: RigTail5
-    400116: RigTail5Gizmo
-    400118: RigTail6
-    400120: RigTail6Gizmo
-    400122: RigTail7
-    400124: RigTail7Gizmo
-    400126: Spider King
-    2100000: 07 - Default
-    2300000: //RootNode
-    2300002: Spider King
-    3300000: //RootNode
-    3300002: Spider King
-    4300000: Spider King
-    9500000: //RootNode
-    13700000: Spider King
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Rig
+  - first:
+      1: 100004
+    second: RigHead
+  - first:
+      1: 100006
+    second: RigHeadGizmo
+  - first:
+      1: 100008
+    second: RigHub
+  - first:
+      1: 100010
+    second: RigHubGizmo
+  - first:
+      1: 100012
+    second: RigJaw
+  - first:
+      1: 100014
+    second: RigJawGizmo
+  - first:
+      1: 100016
+    second: RigL2Leg1
+  - first:
+      1: 100018
+    second: RigL2Leg2
+  - first:
+      1: 100020
+    second: RigL2Leg3
+  - first:
+      1: 100022
+    second: RigL2LegPlatform
+  - first:
+      1: 100024
+    second: RigL3Leg1
+  - first:
+      1: 100026
+    second: RigL3Leg2
+  - first:
+      1: 100028
+    second: RigL3Leg3
+  - first:
+      1: 100030
+    second: RigL3LegPlatform
+  - first:
+      1: 100032
+    second: RigL4Leg1
+  - first:
+      1: 100034
+    second: RigL4Leg2
+  - first:
+      1: 100036
+    second: RigL4Leg3
+  - first:
+      1: 100038
+    second: RigL4LegPlatform
+  - first:
+      1: 100040
+    second: RigLArm1
+  - first:
+      1: 100042
+    second: RigLArm1Gizmo
+  - first:
+      1: 100044
+    second: RigLArm2
+  - first:
+      1: 100046
+    second: RigLArm2Gizmo
+  - first:
+      1: 100048
+    second: RigLArmDigit11
+  - first:
+      1: 100050
+    second: RigLArmDigit12
+  - first:
+      1: 100052
+    second: RigLArmPalm
+  - first:
+      1: 100054
+    second: RigLArmPalmGizmo
+  - first:
+      1: 100056
+    second: RigR2Leg1
+  - first:
+      1: 100058
+    second: RigR2Leg2
+  - first:
+      1: 100060
+    second: RigR2Leg3
+  - first:
+      1: 100062
+    second: RigR2LegPlatform
+  - first:
+      1: 100064
+    second: RigR3Leg1
+  - first:
+      1: 100066
+    second: RigR3Leg2
+  - first:
+      1: 100068
+    second: RigR3Leg3
+  - first:
+      1: 100070
+    second: RigR3LegPlatform
+  - first:
+      1: 100072
+    second: RigR4Leg1
+  - first:
+      1: 100074
+    second: RigR4Leg2
+  - first:
+      1: 100076
+    second: RigR4Leg3
+  - first:
+      1: 100078
+    second: RigR4LegPlatform
+  - first:
+      1: 100080
+    second: RigRArm1
+  - first:
+      1: 100082
+    second: RigRArm1Gizmo
+  - first:
+      1: 100084
+    second: RigRArm2
+  - first:
+      1: 100086
+    second: RigRArm2Gizmo
+  - first:
+      1: 100088
+    second: RigRArmDigit11
+  - first:
+      1: 100090
+    second: RigRArmDigit12
+  - first:
+      1: 100092
+    second: RigRArmPalm
+  - first:
+      1: 100094
+    second: RigRArmPalmGizmo
+  - first:
+      1: 100096
+    second: RigSpine
+  - first:
+      1: 100098
+    second: RigTail1
+  - first:
+      1: 100100
+    second: RigTail1Gizmo
+  - first:
+      1: 100102
+    second: RigTail2
+  - first:
+      1: 100104
+    second: RigTail2Gizmo
+  - first:
+      1: 100106
+    second: RigTail3
+  - first:
+      1: 100108
+    second: RigTail3Gizmo
+  - first:
+      1: 100110
+    second: RigTail4
+  - first:
+      1: 100112
+    second: RigTail4Gizmo
+  - first:
+      1: 100114
+    second: RigTail5
+  - first:
+      1: 100116
+    second: RigTail5Gizmo
+  - first:
+      1: 100118
+    second: RigTail6
+  - first:
+      1: 100120
+    second: RigTail6Gizmo
+  - first:
+      1: 100122
+    second: RigTail7
+  - first:
+      1: 100124
+    second: RigTail7Gizmo
+  - first:
+      1: 100126
+    second: Spider King
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Rig
+  - first:
+      4: 400004
+    second: RigHead
+  - first:
+      4: 400006
+    second: RigHeadGizmo
+  - first:
+      4: 400008
+    second: RigHub
+  - first:
+      4: 400010
+    second: RigHubGizmo
+  - first:
+      4: 400012
+    second: RigJaw
+  - first:
+      4: 400014
+    second: RigJawGizmo
+  - first:
+      4: 400016
+    second: RigL2Leg1
+  - first:
+      4: 400018
+    second: RigL2Leg2
+  - first:
+      4: 400020
+    second: RigL2Leg3
+  - first:
+      4: 400022
+    second: RigL2LegPlatform
+  - first:
+      4: 400024
+    second: RigL3Leg1
+  - first:
+      4: 400026
+    second: RigL3Leg2
+  - first:
+      4: 400028
+    second: RigL3Leg3
+  - first:
+      4: 400030
+    second: RigL3LegPlatform
+  - first:
+      4: 400032
+    second: RigL4Leg1
+  - first:
+      4: 400034
+    second: RigL4Leg2
+  - first:
+      4: 400036
+    second: RigL4Leg3
+  - first:
+      4: 400038
+    second: RigL4LegPlatform
+  - first:
+      4: 400040
+    second: RigLArm1
+  - first:
+      4: 400042
+    second: RigLArm1Gizmo
+  - first:
+      4: 400044
+    second: RigLArm2
+  - first:
+      4: 400046
+    second: RigLArm2Gizmo
+  - first:
+      4: 400048
+    second: RigLArmDigit11
+  - first:
+      4: 400050
+    second: RigLArmDigit12
+  - first:
+      4: 400052
+    second: RigLArmPalm
+  - first:
+      4: 400054
+    second: RigLArmPalmGizmo
+  - first:
+      4: 400056
+    second: RigR2Leg1
+  - first:
+      4: 400058
+    second: RigR2Leg2
+  - first:
+      4: 400060
+    second: RigR2Leg3
+  - first:
+      4: 400062
+    second: RigR2LegPlatform
+  - first:
+      4: 400064
+    second: RigR3Leg1
+  - first:
+      4: 400066
+    second: RigR3Leg2
+  - first:
+      4: 400068
+    second: RigR3Leg3
+  - first:
+      4: 400070
+    second: RigR3LegPlatform
+  - first:
+      4: 400072
+    second: RigR4Leg1
+  - first:
+      4: 400074
+    second: RigR4Leg2
+  - first:
+      4: 400076
+    second: RigR4Leg3
+  - first:
+      4: 400078
+    second: RigR4LegPlatform
+  - first:
+      4: 400080
+    second: RigRArm1
+  - first:
+      4: 400082
+    second: RigRArm1Gizmo
+  - first:
+      4: 400084
+    second: RigRArm2
+  - first:
+      4: 400086
+    second: RigRArm2Gizmo
+  - first:
+      4: 400088
+    second: RigRArmDigit11
+  - first:
+      4: 400090
+    second: RigRArmDigit12
+  - first:
+      4: 400092
+    second: RigRArmPalm
+  - first:
+      4: 400094
+    second: RigRArmPalmGizmo
+  - first:
+      4: 400096
+    second: RigSpine
+  - first:
+      4: 400098
+    second: RigTail1
+  - first:
+      4: 400100
+    second: RigTail1Gizmo
+  - first:
+      4: 400102
+    second: RigTail2
+  - first:
+      4: 400104
+    second: RigTail2Gizmo
+  - first:
+      4: 400106
+    second: RigTail3
+  - first:
+      4: 400108
+    second: RigTail3Gizmo
+  - first:
+      4: 400110
+    second: RigTail4
+  - first:
+      4: 400112
+    second: RigTail4Gizmo
+  - first:
+      4: 400114
+    second: RigTail5
+  - first:
+      4: 400116
+    second: RigTail5Gizmo
+  - first:
+      4: 400118
+    second: RigTail6
+  - first:
+      4: 400120
+    second: RigTail6Gizmo
+  - first:
+      4: 400122
+    second: RigTail7
+  - first:
+      4: 400124
+    second: RigTail7Gizmo
+  - first:
+      4: 400126
+    second: Spider King
+  - first:
+      21: 2100000
+    second: 07 - Default
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      23: 2300002
+    second: Spider King
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      33: 3300002
+    second: Spider King
+  - first:
+      43: 4300000
+    second: Spider King
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Spider King
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -150,6 +422,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -174,25 +447,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -201,10 +485,24 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips:
+  - cf5fcd6ba0bc3304ca1f27cd72a39062
+  - 8149fbb4796a36c45880078a8edd5ed8
+  - 9d33451aba268cd4d914f79929749ea2
+  - e61d9abb02842744ba74cd5eed7b1a90
+  - 84f73d3f5983e3f4c9997ca9cf6d90a3
+  - fb7850b72b8682544a65e4b14e4d2bd1
+  - b500c700849c7e64694466393c8b0560
+  - 742bb083edac76c4bb87c63d5c067600
+  - 6eb856c04896f864eb5f8b63da0d0322
+  - 23393ef3944b6774ab1b0f87bf64ba0c
+  - df48a1368f63527408a43aed051a804c
+  - 1c4965a146feee24180105722ddf5459
+  - e5a80aaac22d1874fab8624cd2c5f800
+  - 24c8477661ac0164197b6c6ce8eef885
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -214,13 +512,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

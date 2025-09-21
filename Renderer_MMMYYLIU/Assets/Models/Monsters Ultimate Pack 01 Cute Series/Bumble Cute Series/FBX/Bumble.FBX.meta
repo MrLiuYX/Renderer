@@ -1,87 +1,239 @@
 fileFormatVersion: 2
 guid: dfcc8081a6ce38b4ba51ac9a6c2600a6
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Bumble
-    100004: Rig
-    100006: RigFeelerL1
-    100008: RigFeelerL1Gizmo
-    100010: RigFeelerL2
-    100012: RigFeelerL2Gizmo
-    100014: RigFeelerL3
-    100016: RigFeelerL3Gizmo
-    100018: RigFeelerR1
-    100020: RigFeelerR1Gizmo
-    100022: RigFeelerR2
-    100024: RigFeelerR2Gizmo
-    100026: RigFeelerR3
-    100028: RigFeelerR3Gizmo
-    100030: RigHead
-    100032: RigHeadGizmo
-    100034: RigHub
-    100036: RigHubGizmo
-    100038: RigNeck
-    100040: RigTail1
-    100042: RigTail1Gizmo
-    100044: RigTail2
-    100046: RigTail2Gizmo
-    100048: RigTail3
-    100050: RigTail3Gizmo
-    100052: RigTail4
-    100054: RigTail4Gizmo
-    100056: RigTail5
-    100058: RigTail5Gizmo
-    100060: RigWingL
-    100062: RigWingLGizmo
-    100064: RigWingR
-    100066: RigWingRGizmo
-    400000: //RootNode
-    400002: Bumble
-    400004: Rig
-    400006: RigFeelerL1
-    400008: RigFeelerL1Gizmo
-    400010: RigFeelerL2
-    400012: RigFeelerL2Gizmo
-    400014: RigFeelerL3
-    400016: RigFeelerL3Gizmo
-    400018: RigFeelerR1
-    400020: RigFeelerR1Gizmo
-    400022: RigFeelerR2
-    400024: RigFeelerR2Gizmo
-    400026: RigFeelerR3
-    400028: RigFeelerR3Gizmo
-    400030: RigHead
-    400032: RigHeadGizmo
-    400034: RigHub
-    400036: RigHubGizmo
-    400038: RigNeck
-    400040: RigTail1
-    400042: RigTail1Gizmo
-    400044: RigTail2
-    400046: RigTail2Gizmo
-    400048: RigTail3
-    400050: RigTail3Gizmo
-    400052: RigTail4
-    400054: RigTail4Gizmo
-    400056: RigTail5
-    400058: RigTail5Gizmo
-    400060: RigWingL
-    400062: RigWingLGizmo
-    400064: RigWingR
-    400066: RigWingRGizmo
-    2100000: 07 - Default
-    2300000: //RootNode
-    2300002: Bumble
-    3300000: //RootNode
-    3300002: Bumble
-    4300000: Bumble
-    9500000: //RootNode
-    13700000: Bumble
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Bumble
+  - first:
+      1: 100004
+    second: Rig
+  - first:
+      1: 100006
+    second: RigFeelerL1
+  - first:
+      1: 100008
+    second: RigFeelerL1Gizmo
+  - first:
+      1: 100010
+    second: RigFeelerL2
+  - first:
+      1: 100012
+    second: RigFeelerL2Gizmo
+  - first:
+      1: 100014
+    second: RigFeelerL3
+  - first:
+      1: 100016
+    second: RigFeelerL3Gizmo
+  - first:
+      1: 100018
+    second: RigFeelerR1
+  - first:
+      1: 100020
+    second: RigFeelerR1Gizmo
+  - first:
+      1: 100022
+    second: RigFeelerR2
+  - first:
+      1: 100024
+    second: RigFeelerR2Gizmo
+  - first:
+      1: 100026
+    second: RigFeelerR3
+  - first:
+      1: 100028
+    second: RigFeelerR3Gizmo
+  - first:
+      1: 100030
+    second: RigHead
+  - first:
+      1: 100032
+    second: RigHeadGizmo
+  - first:
+      1: 100034
+    second: RigHub
+  - first:
+      1: 100036
+    second: RigHubGizmo
+  - first:
+      1: 100038
+    second: RigNeck
+  - first:
+      1: 100040
+    second: RigTail1
+  - first:
+      1: 100042
+    second: RigTail1Gizmo
+  - first:
+      1: 100044
+    second: RigTail2
+  - first:
+      1: 100046
+    second: RigTail2Gizmo
+  - first:
+      1: 100048
+    second: RigTail3
+  - first:
+      1: 100050
+    second: RigTail3Gizmo
+  - first:
+      1: 100052
+    second: RigTail4
+  - first:
+      1: 100054
+    second: RigTail4Gizmo
+  - first:
+      1: 100056
+    second: RigTail5
+  - first:
+      1: 100058
+    second: RigTail5Gizmo
+  - first:
+      1: 100060
+    second: RigWingL
+  - first:
+      1: 100062
+    second: RigWingLGizmo
+  - first:
+      1: 100064
+    second: RigWingR
+  - first:
+      1: 100066
+    second: RigWingRGizmo
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Bumble
+  - first:
+      4: 400004
+    second: Rig
+  - first:
+      4: 400006
+    second: RigFeelerL1
+  - first:
+      4: 400008
+    second: RigFeelerL1Gizmo
+  - first:
+      4: 400010
+    second: RigFeelerL2
+  - first:
+      4: 400012
+    second: RigFeelerL2Gizmo
+  - first:
+      4: 400014
+    second: RigFeelerL3
+  - first:
+      4: 400016
+    second: RigFeelerL3Gizmo
+  - first:
+      4: 400018
+    second: RigFeelerR1
+  - first:
+      4: 400020
+    second: RigFeelerR1Gizmo
+  - first:
+      4: 400022
+    second: RigFeelerR2
+  - first:
+      4: 400024
+    second: RigFeelerR2Gizmo
+  - first:
+      4: 400026
+    second: RigFeelerR3
+  - first:
+      4: 400028
+    second: RigFeelerR3Gizmo
+  - first:
+      4: 400030
+    second: RigHead
+  - first:
+      4: 400032
+    second: RigHeadGizmo
+  - first:
+      4: 400034
+    second: RigHub
+  - first:
+      4: 400036
+    second: RigHubGizmo
+  - first:
+      4: 400038
+    second: RigNeck
+  - first:
+      4: 400040
+    second: RigTail1
+  - first:
+      4: 400042
+    second: RigTail1Gizmo
+  - first:
+      4: 400044
+    second: RigTail2
+  - first:
+      4: 400046
+    second: RigTail2Gizmo
+  - first:
+      4: 400048
+    second: RigTail3
+  - first:
+      4: 400050
+    second: RigTail3Gizmo
+  - first:
+      4: 400052
+    second: RigTail4
+  - first:
+      4: 400054
+    second: RigTail4Gizmo
+  - first:
+      4: 400056
+    second: RigTail5
+  - first:
+      4: 400058
+    second: RigTail5Gizmo
+  - first:
+      4: 400060
+    second: RigWingL
+  - first:
+      4: 400062
+    second: RigWingLGizmo
+  - first:
+      4: 400064
+    second: RigWingR
+  - first:
+      4: 400066
+    second: RigWingRGizmo
+  - first:
+      21: 2100000
+    second: 07 - Default
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      23: 2300002
+    second: Bumble
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      33: 3300002
+    second: Bumble
+  - first:
+      43: 4300000
+    second: Bumble
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Bumble
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -90,6 +242,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -114,25 +267,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -141,10 +305,20 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips:
+  - 920896bcb1a838344938778ae6f878c2
+  - 2bc4ff3dc13548943a8faa9ff3f282ad
+  - 0c9eee6d95bf56348882c509be3f3ea7
+  - 3e08d141910a40b4981323ba467b04a7
+  - 0f21b4422d53ac841acf3d44064cb4af
+  - 693daf1d52a9a934a861dfed132bbbbc
+  - f07378823b8176d47ae7aee7e44c0b05
+  - ea3b27bcac40bbc448664604b9f622ce
+  - 3675889600a5d1b488ffe1d4ae4fe3ce
+  - bea37fbeff3b9d84c8de00da5d68c9d0
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -154,13 +328,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

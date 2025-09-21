@@ -1,101 +1,281 @@
 fileFormatVersion: 2
 guid: f23115f35c3b52f4ab230c9854adc176
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Bird
-    100004: Rig
-    100006: RigHead
-    100008: RigJawDown
-    100010: RigJawUp
-    100012: RigLArm1
-    100014: RigLArm2
-    100016: RigLArmDigit21
-    100018: RigLArmPalm
-    100020: RigLLeg1
-    100022: RigLLeg2
-    100024: RigLLegAnkle
-    100026: RigLLegDigit11
-    100028: RigLLegDigit12
-    100030: RigLLegDigit21
-    100032: RigLLegDigit22
-    100034: RigLLegPlatform
-    100036: RigNeck
-    100038: RigPelvis
-    100040: RigRArm1
-    100042: RigRArm2
-    100044: RigRArmDigit21
-    100046: RigRArmPalm
-    100048: RigRibcage
-    100050: RigRLeg1
-    100052: RigRLeg2
-    100054: RigRLegAnkle
-    100056: RigRLegDigit11
-    100058: RigRLegDigit12
-    100060: RigRLegDigit21
-    100062: RigRLegDigit22
-    100064: RigRLegPlatform
-    100066: RigSpine1
-    100068: RigSpine2
-    100070: RigTail1
-    100072: RigTail2
-    100074: RigTail3
-    100076: RigTail4
-    100078: RigTail5
-    400000: //RootNode
-    400002: Bird
-    400004: Rig
-    400006: RigHead
-    400008: RigJawDown
-    400010: RigJawUp
-    400012: RigLArm1
-    400014: RigLArm2
-    400016: RigLArmDigit21
-    400018: RigLArmPalm
-    400020: RigLLeg1
-    400022: RigLLeg2
-    400024: RigLLegAnkle
-    400026: RigLLegDigit11
-    400028: RigLLegDigit12
-    400030: RigLLegDigit21
-    400032: RigLLegDigit22
-    400034: RigLLegPlatform
-    400036: RigNeck
-    400038: RigPelvis
-    400040: RigRArm1
-    400042: RigRArm2
-    400044: RigRArmDigit21
-    400046: RigRArmPalm
-    400048: RigRibcage
-    400050: RigRLeg1
-    400052: RigRLeg2
-    400054: RigRLegAnkle
-    400056: RigRLegDigit11
-    400058: RigRLegDigit12
-    400060: RigRLegDigit21
-    400062: RigRLegDigit22
-    400064: RigRLegPlatform
-    400066: RigSpine1
-    400068: RigSpine2
-    400070: RigTail1
-    400072: RigTail2
-    400074: RigTail3
-    400076: RigTail4
-    400078: RigTail5
-    2100000: 01 - Default
-    2100002: 07 - Default
-    2300000: //RootNode
-    2300002: Bird
-    3300000: //RootNode
-    3300002: Bird
-    4300000: Bird
-    7400000: Take 001
-    9500000: //RootNode
-    13700000: Bird
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Bird
+  - first:
+      1: 100004
+    second: Rig
+  - first:
+      1: 100006
+    second: RigHead
+  - first:
+      1: 100008
+    second: RigJawDown
+  - first:
+      1: 100010
+    second: RigJawUp
+  - first:
+      1: 100012
+    second: RigLArm1
+  - first:
+      1: 100014
+    second: RigLArm2
+  - first:
+      1: 100016
+    second: RigLArmDigit21
+  - first:
+      1: 100018
+    second: RigLArmPalm
+  - first:
+      1: 100020
+    second: RigLLeg1
+  - first:
+      1: 100022
+    second: RigLLeg2
+  - first:
+      1: 100024
+    second: RigLLegAnkle
+  - first:
+      1: 100026
+    second: RigLLegDigit11
+  - first:
+      1: 100028
+    second: RigLLegDigit12
+  - first:
+      1: 100030
+    second: RigLLegDigit21
+  - first:
+      1: 100032
+    second: RigLLegDigit22
+  - first:
+      1: 100034
+    second: RigLLegPlatform
+  - first:
+      1: 100036
+    second: RigNeck
+  - first:
+      1: 100038
+    second: RigPelvis
+  - first:
+      1: 100040
+    second: RigRArm1
+  - first:
+      1: 100042
+    second: RigRArm2
+  - first:
+      1: 100044
+    second: RigRArmDigit21
+  - first:
+      1: 100046
+    second: RigRArmPalm
+  - first:
+      1: 100048
+    second: RigRibcage
+  - first:
+      1: 100050
+    second: RigRLeg1
+  - first:
+      1: 100052
+    second: RigRLeg2
+  - first:
+      1: 100054
+    second: RigRLegAnkle
+  - first:
+      1: 100056
+    second: RigRLegDigit11
+  - first:
+      1: 100058
+    second: RigRLegDigit12
+  - first:
+      1: 100060
+    second: RigRLegDigit21
+  - first:
+      1: 100062
+    second: RigRLegDigit22
+  - first:
+      1: 100064
+    second: RigRLegPlatform
+  - first:
+      1: 100066
+    second: RigSpine1
+  - first:
+      1: 100068
+    second: RigSpine2
+  - first:
+      1: 100070
+    second: RigTail1
+  - first:
+      1: 100072
+    second: RigTail2
+  - first:
+      1: 100074
+    second: RigTail3
+  - first:
+      1: 100076
+    second: RigTail4
+  - first:
+      1: 100078
+    second: RigTail5
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Bird
+  - first:
+      4: 400004
+    second: Rig
+  - first:
+      4: 400006
+    second: RigHead
+  - first:
+      4: 400008
+    second: RigJawDown
+  - first:
+      4: 400010
+    second: RigJawUp
+  - first:
+      4: 400012
+    second: RigLArm1
+  - first:
+      4: 400014
+    second: RigLArm2
+  - first:
+      4: 400016
+    second: RigLArmDigit21
+  - first:
+      4: 400018
+    second: RigLArmPalm
+  - first:
+      4: 400020
+    second: RigLLeg1
+  - first:
+      4: 400022
+    second: RigLLeg2
+  - first:
+      4: 400024
+    second: RigLLegAnkle
+  - first:
+      4: 400026
+    second: RigLLegDigit11
+  - first:
+      4: 400028
+    second: RigLLegDigit12
+  - first:
+      4: 400030
+    second: RigLLegDigit21
+  - first:
+      4: 400032
+    second: RigLLegDigit22
+  - first:
+      4: 400034
+    second: RigLLegPlatform
+  - first:
+      4: 400036
+    second: RigNeck
+  - first:
+      4: 400038
+    second: RigPelvis
+  - first:
+      4: 400040
+    second: RigRArm1
+  - first:
+      4: 400042
+    second: RigRArm2
+  - first:
+      4: 400044
+    second: RigRArmDigit21
+  - first:
+      4: 400046
+    second: RigRArmPalm
+  - first:
+      4: 400048
+    second: RigRibcage
+  - first:
+      4: 400050
+    second: RigRLeg1
+  - first:
+      4: 400052
+    second: RigRLeg2
+  - first:
+      4: 400054
+    second: RigRLegAnkle
+  - first:
+      4: 400056
+    second: RigRLegDigit11
+  - first:
+      4: 400058
+    second: RigRLegDigit12
+  - first:
+      4: 400060
+    second: RigRLegDigit21
+  - first:
+      4: 400062
+    second: RigRLegDigit22
+  - first:
+      4: 400064
+    second: RigRLegPlatform
+  - first:
+      4: 400066
+    second: RigSpine1
+  - first:
+      4: 400068
+    second: RigSpine2
+  - first:
+      4: 400070
+    second: RigTail1
+  - first:
+      4: 400072
+    second: RigTail2
+  - first:
+      4: 400074
+    second: RigTail3
+  - first:
+      4: 400076
+    second: RigTail4
+  - first:
+      4: 400078
+    second: RigTail5
+  - first:
+      21: 2100000
+    second: 01 - Default
+  - first:
+      21: 2100002
+    second: 07 - Default
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      23: 2300002
+    second: Bird
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      33: 3300002
+    second: Bird
+  - first:
+      43: 4300000
+    second: Bird
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Bird
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -104,6 +284,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -128,25 +309,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -155,10 +347,20 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips:
+  - 6948c422fd66780499af53394d20d07b
+  - 763eedf2b5d997649811c25075ddfb8b
+  - bb7aed19963ed7a488a09170a91d20b3
+  - 9c9f6cc8c17ad0243b14ecac046ba12b
+  - ee51e5174cf8cce45a5a0e075e581cbc
+  - c7ff1a380a7120a4ba7f3be442532779
+  - c1f168e15dea03e4c8a1a6ef315011ce
+  - c256283bcd27d194989702394c079828
+  - ff1185fac34be664293e67ad9734a775
+  - 3cda22e929dc7ee46a9e163290399ca6
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -168,13 +370,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

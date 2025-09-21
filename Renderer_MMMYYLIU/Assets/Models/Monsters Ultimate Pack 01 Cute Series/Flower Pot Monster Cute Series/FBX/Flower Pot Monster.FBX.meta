@@ -1,165 +1,473 @@
 fileFormatVersion: 2
 guid: 9c3eba06d4ca5b74ebb3854a5d047d27
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Flower Pot Monster
-    100004: Rig
-    100006: RigHead
-    100008: RigHeadGizmo
-    100010: RigJaw
-    100012: RigJawGizmo
-    100014: RigLLeg1
-    100016: RigLLeg2
-    100018: RigLLegAnkle
-    100020: RigLLegPlatform
-    100022: RigNeck1
-    100024: RigNeck1Gizmo
-    100026: RigNeck2
-    100028: RigNeck2Gizmo
-    100030: RigNeck3
-    100032: RigNeck3Gizmo
-    100034: RigNeck4
-    100036: RigNeck4Gizmo
-    100038: RigNeck5
-    100040: RigNeck5Gizmo
-    100042: RigNeck6
-    100044: RigNeck6Gizmo
-    100046: RigPelvis
-    100048: RigPelvisGizmo
-    100050: RigPetal N1
-    100052: RigPetal N2
-    100054: RigPetal N3
-    100056: RigPetal N4
-    100058: RigPetal N5
-    100060: RigPetal N6
-    100062: RigPetal N7
-    100064: RigPetal NE1
-    100066: RigPetal NE2
-    100068: RigPetal NE3
-    100070: RigPetal NE4
-    100072: RigPetal NE5
-    100074: RigPetal NE6
-    100076: RigPetal NE7
-    100078: RigPetal NS1
-    100080: RigPetal NS2
-    100082: RigPetal NS3
-    100084: RigPetal NS4
-    100086: RigPetal NS5
-    100088: RigPetal NS6
-    100090: RigPetal NS7
-    100092: RigPetal S1
-    100094: RigPetal S2
-    100096: RigPetal S3
-    100098: RigPetal S4
-    100100: RigPetal S5
-    100102: RigPetal S6
-    100104: RigPetal S7
-    100106: RigPetal SE1
-    100108: RigPetal SE2
-    100110: RigPetal SE3
-    100112: RigPetal SE4
-    100114: RigPetal SE5
-    100116: RigPetal SE6
-    100118: RigPetal SE7
-    100120: RigPetal SW1
-    100122: RigPetal SW2
-    100124: RigPetal SW3
-    100126: RigPetal SW4
-    100128: RigPetal SW5
-    100130: RigPetal SW6
-    100132: RigPetal SW7
-    100134: RigPetal NW1
-    100136: RigPetal NW2
-    100138: RigPetal NW3
-    100140: RigPetal NW4
-    100142: RigPetal NW5
-    100144: RigPetal NW6
-    100146: RigPetal NW7
-    400000: //RootNode
-    400002: Flower Pot Monster
-    400004: Rig
-    400006: RigHead
-    400008: RigHeadGizmo
-    400010: RigJaw
-    400012: RigJawGizmo
-    400014: RigLLeg1
-    400016: RigLLeg2
-    400018: RigLLegAnkle
-    400020: RigLLegPlatform
-    400022: RigNeck1
-    400024: RigNeck1Gizmo
-    400026: RigNeck2
-    400028: RigNeck2Gizmo
-    400030: RigNeck3
-    400032: RigNeck3Gizmo
-    400034: RigNeck4
-    400036: RigNeck4Gizmo
-    400038: RigNeck5
-    400040: RigNeck5Gizmo
-    400042: RigNeck6
-    400044: RigNeck6Gizmo
-    400046: RigPelvis
-    400048: RigPelvisGizmo
-    400050: RigPetal N1
-    400052: RigPetal N2
-    400054: RigPetal N3
-    400056: RigPetal N4
-    400058: RigPetal N5
-    400060: RigPetal N6
-    400062: RigPetal N7
-    400064: RigPetal NE1
-    400066: RigPetal NE2
-    400068: RigPetal NE3
-    400070: RigPetal NE4
-    400072: RigPetal NE5
-    400074: RigPetal NE6
-    400076: RigPetal NE7
-    400078: RigPetal NS1
-    400080: RigPetal NS2
-    400082: RigPetal NS3
-    400084: RigPetal NS4
-    400086: RigPetal NS5
-    400088: RigPetal NS6
-    400090: RigPetal NS7
-    400092: RigPetal S1
-    400094: RigPetal S2
-    400096: RigPetal S3
-    400098: RigPetal S4
-    400100: RigPetal S5
-    400102: RigPetal S6
-    400104: RigPetal S7
-    400106: RigPetal SE1
-    400108: RigPetal SE2
-    400110: RigPetal SE3
-    400112: RigPetal SE4
-    400114: RigPetal SE5
-    400116: RigPetal SE6
-    400118: RigPetal SE7
-    400120: RigPetal SW1
-    400122: RigPetal SW2
-    400124: RigPetal SW3
-    400126: RigPetal SW4
-    400128: RigPetal SW5
-    400130: RigPetal SW6
-    400132: RigPetal SW7
-    400134: RigPetal NW1
-    400136: RigPetal NW2
-    400138: RigPetal NW3
-    400140: RigPetal NW4
-    400142: RigPetal NW5
-    400144: RigPetal NW6
-    400146: RigPetal NW7
-    2100000: 01 - Default
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Flower Pot Monster
-    9500000: //RootNode
-    13700000: Flower Pot Monster
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Flower Pot Monster
+  - first:
+      1: 100004
+    second: Rig
+  - first:
+      1: 100006
+    second: RigHead
+  - first:
+      1: 100008
+    second: RigHeadGizmo
+  - first:
+      1: 100010
+    second: RigJaw
+  - first:
+      1: 100012
+    second: RigJawGizmo
+  - first:
+      1: 100014
+    second: RigLLeg1
+  - first:
+      1: 100016
+    second: RigLLeg2
+  - first:
+      1: 100018
+    second: RigLLegAnkle
+  - first:
+      1: 100020
+    second: RigLLegPlatform
+  - first:
+      1: 100022
+    second: RigNeck1
+  - first:
+      1: 100024
+    second: RigNeck1Gizmo
+  - first:
+      1: 100026
+    second: RigNeck2
+  - first:
+      1: 100028
+    second: RigNeck2Gizmo
+  - first:
+      1: 100030
+    second: RigNeck3
+  - first:
+      1: 100032
+    second: RigNeck3Gizmo
+  - first:
+      1: 100034
+    second: RigNeck4
+  - first:
+      1: 100036
+    second: RigNeck4Gizmo
+  - first:
+      1: 100038
+    second: RigNeck5
+  - first:
+      1: 100040
+    second: RigNeck5Gizmo
+  - first:
+      1: 100042
+    second: RigNeck6
+  - first:
+      1: 100044
+    second: RigNeck6Gizmo
+  - first:
+      1: 100046
+    second: RigPelvis
+  - first:
+      1: 100048
+    second: RigPelvisGizmo
+  - first:
+      1: 100050
+    second: RigPetal N1
+  - first:
+      1: 100052
+    second: RigPetal N2
+  - first:
+      1: 100054
+    second: RigPetal N3
+  - first:
+      1: 100056
+    second: RigPetal N4
+  - first:
+      1: 100058
+    second: RigPetal N5
+  - first:
+      1: 100060
+    second: RigPetal N6
+  - first:
+      1: 100062
+    second: RigPetal N7
+  - first:
+      1: 100064
+    second: RigPetal NE1
+  - first:
+      1: 100066
+    second: RigPetal NE2
+  - first:
+      1: 100068
+    second: RigPetal NE3
+  - first:
+      1: 100070
+    second: RigPetal NE4
+  - first:
+      1: 100072
+    second: RigPetal NE5
+  - first:
+      1: 100074
+    second: RigPetal NE6
+  - first:
+      1: 100076
+    second: RigPetal NE7
+  - first:
+      1: 100078
+    second: RigPetal NS1
+  - first:
+      1: 100080
+    second: RigPetal NS2
+  - first:
+      1: 100082
+    second: RigPetal NS3
+  - first:
+      1: 100084
+    second: RigPetal NS4
+  - first:
+      1: 100086
+    second: RigPetal NS5
+  - first:
+      1: 100088
+    second: RigPetal NS6
+  - first:
+      1: 100090
+    second: RigPetal NS7
+  - first:
+      1: 100092
+    second: RigPetal S1
+  - first:
+      1: 100094
+    second: RigPetal S2
+  - first:
+      1: 100096
+    second: RigPetal S3
+  - first:
+      1: 100098
+    second: RigPetal S4
+  - first:
+      1: 100100
+    second: RigPetal S5
+  - first:
+      1: 100102
+    second: RigPetal S6
+  - first:
+      1: 100104
+    second: RigPetal S7
+  - first:
+      1: 100106
+    second: RigPetal SE1
+  - first:
+      1: 100108
+    second: RigPetal SE2
+  - first:
+      1: 100110
+    second: RigPetal SE3
+  - first:
+      1: 100112
+    second: RigPetal SE4
+  - first:
+      1: 100114
+    second: RigPetal SE5
+  - first:
+      1: 100116
+    second: RigPetal SE6
+  - first:
+      1: 100118
+    second: RigPetal SE7
+  - first:
+      1: 100120
+    second: RigPetal SW1
+  - first:
+      1: 100122
+    second: RigPetal SW2
+  - first:
+      1: 100124
+    second: RigPetal SW3
+  - first:
+      1: 100126
+    second: RigPetal SW4
+  - first:
+      1: 100128
+    second: RigPetal SW5
+  - first:
+      1: 100130
+    second: RigPetal SW6
+  - first:
+      1: 100132
+    second: RigPetal SW7
+  - first:
+      1: 100134
+    second: RigPetal NW1
+  - first:
+      1: 100136
+    second: RigPetal NW2
+  - first:
+      1: 100138
+    second: RigPetal NW3
+  - first:
+      1: 100140
+    second: RigPetal NW4
+  - first:
+      1: 100142
+    second: RigPetal NW5
+  - first:
+      1: 100144
+    second: RigPetal NW6
+  - first:
+      1: 100146
+    second: RigPetal NW7
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Flower Pot Monster
+  - first:
+      4: 400004
+    second: Rig
+  - first:
+      4: 400006
+    second: RigHead
+  - first:
+      4: 400008
+    second: RigHeadGizmo
+  - first:
+      4: 400010
+    second: RigJaw
+  - first:
+      4: 400012
+    second: RigJawGizmo
+  - first:
+      4: 400014
+    second: RigLLeg1
+  - first:
+      4: 400016
+    second: RigLLeg2
+  - first:
+      4: 400018
+    second: RigLLegAnkle
+  - first:
+      4: 400020
+    second: RigLLegPlatform
+  - first:
+      4: 400022
+    second: RigNeck1
+  - first:
+      4: 400024
+    second: RigNeck1Gizmo
+  - first:
+      4: 400026
+    second: RigNeck2
+  - first:
+      4: 400028
+    second: RigNeck2Gizmo
+  - first:
+      4: 400030
+    second: RigNeck3
+  - first:
+      4: 400032
+    second: RigNeck3Gizmo
+  - first:
+      4: 400034
+    second: RigNeck4
+  - first:
+      4: 400036
+    second: RigNeck4Gizmo
+  - first:
+      4: 400038
+    second: RigNeck5
+  - first:
+      4: 400040
+    second: RigNeck5Gizmo
+  - first:
+      4: 400042
+    second: RigNeck6
+  - first:
+      4: 400044
+    second: RigNeck6Gizmo
+  - first:
+      4: 400046
+    second: RigPelvis
+  - first:
+      4: 400048
+    second: RigPelvisGizmo
+  - first:
+      4: 400050
+    second: RigPetal N1
+  - first:
+      4: 400052
+    second: RigPetal N2
+  - first:
+      4: 400054
+    second: RigPetal N3
+  - first:
+      4: 400056
+    second: RigPetal N4
+  - first:
+      4: 400058
+    second: RigPetal N5
+  - first:
+      4: 400060
+    second: RigPetal N6
+  - first:
+      4: 400062
+    second: RigPetal N7
+  - first:
+      4: 400064
+    second: RigPetal NE1
+  - first:
+      4: 400066
+    second: RigPetal NE2
+  - first:
+      4: 400068
+    second: RigPetal NE3
+  - first:
+      4: 400070
+    second: RigPetal NE4
+  - first:
+      4: 400072
+    second: RigPetal NE5
+  - first:
+      4: 400074
+    second: RigPetal NE6
+  - first:
+      4: 400076
+    second: RigPetal NE7
+  - first:
+      4: 400078
+    second: RigPetal NS1
+  - first:
+      4: 400080
+    second: RigPetal NS2
+  - first:
+      4: 400082
+    second: RigPetal NS3
+  - first:
+      4: 400084
+    second: RigPetal NS4
+  - first:
+      4: 400086
+    second: RigPetal NS5
+  - first:
+      4: 400088
+    second: RigPetal NS6
+  - first:
+      4: 400090
+    second: RigPetal NS7
+  - first:
+      4: 400092
+    second: RigPetal S1
+  - first:
+      4: 400094
+    second: RigPetal S2
+  - first:
+      4: 400096
+    second: RigPetal S3
+  - first:
+      4: 400098
+    second: RigPetal S4
+  - first:
+      4: 400100
+    second: RigPetal S5
+  - first:
+      4: 400102
+    second: RigPetal S6
+  - first:
+      4: 400104
+    second: RigPetal S7
+  - first:
+      4: 400106
+    second: RigPetal SE1
+  - first:
+      4: 400108
+    second: RigPetal SE2
+  - first:
+      4: 400110
+    second: RigPetal SE3
+  - first:
+      4: 400112
+    second: RigPetal SE4
+  - first:
+      4: 400114
+    second: RigPetal SE5
+  - first:
+      4: 400116
+    second: RigPetal SE6
+  - first:
+      4: 400118
+    second: RigPetal SE7
+  - first:
+      4: 400120
+    second: RigPetal SW1
+  - first:
+      4: 400122
+    second: RigPetal SW2
+  - first:
+      4: 400124
+    second: RigPetal SW3
+  - first:
+      4: 400126
+    second: RigPetal SW4
+  - first:
+      4: 400128
+    second: RigPetal SW5
+  - first:
+      4: 400130
+    second: RigPetal SW6
+  - first:
+      4: 400132
+    second: RigPetal SW7
+  - first:
+      4: 400134
+    second: RigPetal NW1
+  - first:
+      4: 400136
+    second: RigPetal NW2
+  - first:
+      4: 400138
+    second: RigPetal NW3
+  - first:
+      4: 400140
+    second: RigPetal NW4
+  - first:
+      4: 400142
+    second: RigPetal NW5
+  - first:
+      4: 400144
+    second: RigPetal NW6
+  - first:
+      4: 400146
+    second: RigPetal NW7
+  - first:
+      21: 2100000
+    second: 01 - Default
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      43: 4300000
+    second: Flower Pot Monster
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Flower Pot Monster
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -168,6 +476,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -192,25 +501,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -219,10 +539,20 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips:
+  - 5f7a28d915f57274aa31249d87bdc87d
+  - f359c6f726e0ae9469e43d508d3bac63
+  - 210ac98c5c5981e4e8fdf8536fecf462
+  - a99a5c00186d8e54490f1bdf85a60e36
+  - 1ae4c8a13db796349b16198c8d508ac3
+  - f7a3f1a83c373aa4d9007ebf6d8c14e3
+  - d3078131e994c0d43bfbc1ef6eef9ca3
+  - 602b43044a50d6a4da672c9e7ca23eab
+  - 0d1c04509d09bd44fac823ec2e5bb30c
+  - b8b26a2fe0c28794997b8867a6f88323
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -232,13 +562,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

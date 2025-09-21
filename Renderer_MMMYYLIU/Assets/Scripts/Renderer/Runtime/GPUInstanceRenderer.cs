@@ -6,6 +6,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Rendering;
 
 public delegate void OnDataTextureChanged();
 
@@ -46,6 +47,9 @@ public unsafe class GPUInstanceRenderer<T> : IRenderer, IReference where T : unm
 
     private void InternalOnCreate(Material mat, Mesh mesh)
     {
+        //Debug.LogError($"Gfx: {SystemInfo.graphicsDeviceType}, WebGL2? {SystemInfo.graphicsDeviceType == GraphicsDeviceType.OpenGLES3}");
+        //Debug.LogError($"2DArray? {SystemInfo.supports2DArrayTextures}");
+        //Debug.LogError($"RGBAFloat? {SystemInfo.SupportsTextureFormat(TextureFormat.RGBAFloat)}");
         //图集相关参数
         _textureSize = 0;
         _rendererDataSize = UnsafeUtility.SizeOf<T>();
@@ -195,7 +199,7 @@ public unsafe class GPUInstanceRenderer<T> : IRenderer, IReference where T : unm
 
         _argsBuffer.SetData(_args);
 
-        if (SystemInfo.supportsInstancing)
+        if (SystemInfo.graphicsDeviceType != GraphicsDeviceType.OpenGLES3)
         {
             Graphics.DrawMeshInstancedIndirect(
                 _instanceMesh,
