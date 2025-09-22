@@ -1025,9 +1025,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2156180079196142817}
   - component: {fileID: 2156180079205716737}
-  - component: {fileID: -8199844940608901323}
-  - component: {fileID: -3186603286598013938}
-  - component: {fileID: -3164025506991689595}
+  - component: {fileID: 6596865233583900540}
+  - component: {fileID: 9075350425175244255}
   m_Layer: 0
   m_Name: Bat Lord
   m_TagString: Untagged
@@ -1108,7 +1107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-8199844940608901323
+--- !u!114 &6596865233583900540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1117,13 +1116,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2156180079196364993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e56ef761b894254994f36981a1487da, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d6b3ec9855768d4ab88b10580bc24c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AnimationClips:
   - {fileID: 7400000, guid: d5e1a3e942edaae4aab8019b75aff7c9, type: 3}
   AnimationIds: 00000000
---- !u!114 &-3186603286598013938
+--- !u!114 &9075350425175244255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1132,52 +1131,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2156180079196364993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a25c54c73a53da64e8b646b9905794f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ccc0037b5cb0a84fbfe62797074cc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeMode: 0
-  animateCrossFading: 0
-  autoCollectRenderers: 1
-  simplificationOptions:
-    PreserveBorderEdges: 0
-    PreserveUVSeamEdges: 0
-    PreserveUVFoldoverEdges: 0
-    PreserveSurfaceCurvature: 0
-    EnableSmartLink: 1
-    VertexLinkDistance: 5e-324
-    MaxIterationCount: 100
-    Agressiveness: 7
-    ManualUVComponentCount: 0
-    UVComponentCount: 2
-  saveAssetsPath: 
-  levels:
-  - screenRelativeTransitionHeight: 0
-    fadeTransitionWidth: 0
-    quality: 0.4
-    combineMeshes: 0
-    combineSubMeshes: 0
-    renderers: []
-    skinQuality: 0
-    shadowCastingMode: 0
-    receiveShadows: 0
-    motionVectorGenerationMode: 1
-    skinnedMotionVectors: 1
-    lightProbeUsage: 1
-    reflectionProbeUsage: 1
-  isGenerated: 0
---- !u!114 &-3164025506991689595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2156180079196364993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f8d61b44a260b74191a6d728b651395, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShaderPath: Assets/AssetBundleRes/Main/Shaders/AnimationBatchesMerge.shader
+  ShaderPath: 
   MakeDatas:
   - Id: 0
     Animation: {fileID: 7400000, guid: d5e1a3e942edaae4aab8019b75aff7c9, type: 3}
@@ -2327,8 +2284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2156180079196365129}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000018476983, y: -0.000000031883115, z: 0.0004862994,
-    w: 0.9999999}
+  m_LocalRotation: {x: 0.000000018476983, y: -0.000000031883115, z: 0.0004862994, w: 0.9999999}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2360,8 +2316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2156180079196365131}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000039176474, y: -0.000000029986655, z: 0.016909458,
-    w: 0.99985707}
+  m_LocalRotation: {x: -0.000000039176474, y: -0.000000029986655, z: 0.016909458, w: 0.99985707}
   m_LocalPosition: {x: -0.11667694, y: 0, z: -7.2759575e-14}
   m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1}
   m_ConstrainProportionsScale: 0

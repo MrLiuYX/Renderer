@@ -84,4 +84,88 @@ public class Demo_Animation : MonoBehaviour
             Write[index] = handler;
         }
     }
+
+    #region UI
+    // 面板位置与尺寸（离左上角留出边距）
+    private Rect _panelRect = new Rect(32, 32, 1100, 160);
+
+    // 缓存样式 & 输入框文本
+    private GUIStyle _box, _title, _value, _slider, _thumb;
+    private string _inputCache;
+
+    private void InitStyles()
+    {
+        if (_box != null) return;
+
+        _box = new GUIStyle(GUI.skin.box)
+        {
+            padding = new RectOffset(16, 16, 16, 16)
+        };
+
+        _title = new GUIStyle(GUI.skin.label)
+        {
+            fontSize = 20,
+            fontStyle = FontStyle.Bold,
+            alignment = TextAnchor.MiddleLeft
+        };
+
+        _value = new GUIStyle(GUI.skin.label)
+        {
+            fontSize = 18,
+            alignment = TextAnchor.MiddleLeft
+        };
+
+        // 更“厚”的滑条与拇指（thumb）
+        _slider = new GUIStyle(GUI.skin.horizontalSlider)
+        {
+            fixedHeight = 28
+        };
+        _thumb = new GUIStyle(GUI.skin.horizontalSliderThumb)
+        {
+            fixedHeight = 28,
+            fixedWidth = 22
+        };
+
+        _inputCache = EntityCount.ToString();
+    }
+
+    private void OnGUI()
+    {
+        InitStyles();
+
+        GUILayout.BeginArea(_panelRect, _box);
+
+        // 标题 + 当前数值
+        GUILayout.Label("Entities", _title);
+        GUILayout.Space(4);
+
+        // 一行：滑条 + 数值展示
+        GUILayout.BeginHorizontal();
+
+        // 用 Rect 版本的 Slider 才能指定自定义样式和高度
+        var sliderRect = GUILayoutUtility.GetRect(0, 40, GUILayout.ExpandWidth(true));
+        EntityCount = Mathf.RoundToInt(
+            GUI.HorizontalSlider(sliderRect, EntityCount, 0, 10000, _slider, _thumb)
+        );
+
+        GUILayout.Space(12);
+        GUILayout.Label($"EntityCount：{EntityCount}", _value, GUILayout.Width(220));
+
+        // 可手动输入
+        GUI.SetNextControlName("EntityInput");
+        _inputCache = GUILayout.TextField(_inputCache, GUILayout.Width(100));
+        if (GUI.GetNameOfFocusedControl() != "EntityInput")
+        {
+            _inputCache = EntityCount.ToString();
+        }
+        else if (int.TryParse(_inputCache, out var typed))
+        {
+            EntityCount = Mathf.Clamp(typed, 0, 10000);
+        }
+
+        GUILayout.EndHorizontal();
+
+        GUILayout.EndArea();
+    }
+    #endregion
 }
