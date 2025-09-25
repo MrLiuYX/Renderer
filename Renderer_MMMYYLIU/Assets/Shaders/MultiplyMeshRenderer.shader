@@ -141,17 +141,17 @@ Shader "Unlit/MultiplyMeshRenderer"
                 skinnedNormal += mul((float3x3)boneMatrix, normal) * v.boneWeights.x;
 
                 //Bone 1
-                boneMatrix = GetBoneMatrix(data4, data5.y, v.bonesIndexs.y, data5.y);
+                boneMatrix = GetBoneMatrix(data4, data5.x, v.bonesIndexs.y, data5.y);
                 skinnedPos += mul(boneMatrix, pos) * v.boneWeights.y;
                 skinnedNormal += mul((float3x3)boneMatrix, normal) * v.boneWeights.y;
 
                 //Bone 2
-				boneMatrix = GetBoneMatrix(data4, data5.z, v.bonesIndexs.z, data5.y);
+				boneMatrix = GetBoneMatrix(data4, data5.x, v.bonesIndexs.z, data5.y);
 				skinnedPos += mul(boneMatrix, pos) * v.boneWeights.z;
 				skinnedNormal += mul((float3x3)boneMatrix, normal) * v.boneWeights.z;
 
                 //Bone 3
-                boneMatrix = GetBoneMatrix(data4, data5.w, v.bonesIndexs.w, data5.y);
+                boneMatrix = GetBoneMatrix(data4, data5.x, v.bonesIndexs.w, data5.y);
                 skinnedPos += mul(boneMatrix, pos) * v.boneWeights.w;
                 skinnedNormal += mul((float3x3)boneMatrix, normal) * v.boneWeights.w;
                 
